@@ -1,0 +1,21 @@
+.contact, .localisation {
+  padding: 20px;
+  color: #fff;
+  background: #121212;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-list li {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.contact-list a {
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+}

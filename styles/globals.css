@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Style global pour Wizza Free Shop */
+
+/* Reset de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Police et couleurs principales */
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #121212;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Titres */
+h1, h2, h3 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h1 {
+  color: gold;
+}
+
+h2 {
+  color: #f1c40f;
+}
+
+/* Liens */
+a {
+  color: gold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Boutons */
+button {
+  background: gold;
+  color: #000;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #f1c40f;
+}
+
+/* Containers */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Formulaires */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+/* Messages de statut */
+.status {
+  margin-top: 10px;
+  font-weight: bold;
+}

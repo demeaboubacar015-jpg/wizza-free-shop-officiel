@@ -1,0 +1,28 @@
+.mentions-legales {
+  padding: 20px;
+  background: #121212;
+  color: #fff;
+}
+
+.mentions-legales h1 {
+  color: gold;
+  margin-bottom: 20px;
+}
+
+.mentions-legales section {
+  margin-bottom: 20px;
+}
+
+.mentions-legales h2 {
+  color: #f1c40f;
+  margin-bottom: 10px;
+}
+
+.mentions-legales a {
+  color: gold;
+  text-decoration: none;
+}
+
+.mentions-legales a:hover {
+  text-decoration: underline;
+}
