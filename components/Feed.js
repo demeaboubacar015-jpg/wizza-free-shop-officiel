@@ -3,8 +3,10 @@ import { supabase } from "../lib/supabase";
 import ProductCard from "./ProductCard";
 
 export default function Feed() {
+  // Définition du state products
   const [products, setProducts] = useState([]);
 
+  // Chargement des produits depuis Supabase
   useEffect(() => {
     const fetchProducts = async () => {
       const { data, error } = await supabase
@@ -22,14 +24,6 @@ export default function Feed() {
     fetchProducts();
   }, []);
 
-  if (!products || products.length === 0) {
-    return (
-      <p className="text-gray-400 text-center p-10">
-        Chargement des produits en cours...
-      </p>
-    );
-  }
-
   return (
     <div className="feed">
       <h1 className="text-xl font-bold text-white mb-2">Fil d’actualité</h1>
@@ -37,10 +31,15 @@ export default function Feed() {
         Découvrez les derniers produits publiés sur Wizza Free Shop.
       </p>
 
+      {/* Grille en 2 colonnes */}
       <div className="grid grid-cols-2 gap-4 p-4 bg-black">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+        {products.length === 0 ? (
+          <p className="text-gray-400">Aucun produit disponible pour le moment.</p>
+        ) : (
+          products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))
+        )}
       </div>
     </div>
   );
