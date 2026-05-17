@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
-import ProductCard from "./ProductCard"; // ✅ Import corrigé
+import ProductCard from "./ProductCard"; // ✅ Import correct
 
 export default function Feed() {
   // Définition du state products
@@ -48,4 +48,4 @@ export default function Feed() {
       </div>
     </div>
   );
-}
+} // ✅ Fermeture correcte, plus de point-virgule inutile
