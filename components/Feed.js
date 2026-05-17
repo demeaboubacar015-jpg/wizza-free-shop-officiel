@@ -22,7 +22,6 @@ export default function Feed() {
     fetchProducts();
   }, []);
 
-  // ✅ Early Return de sécurité
   if (!products || products.length === 0) {
     return (
       <p className="text-gray-400 text-center p-10">
