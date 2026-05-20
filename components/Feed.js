@@ -13,7 +13,7 @@ export default function Feed() {
         .order("created_at", { ascending: false });
 
       if (error) {
-        console.error("Erreur chargement produits:", error.message);
+        console.error("Error loading products:", error.message);
       } else {
         setProducts(data);
       }
@@ -25,16 +25,16 @@ export default function Feed() {
   if (!products || products.length === 0) {
     return (
       <p className="text-gray-400 text-center p-10">
-        Chargement des produits en cours...
+        Loading products...
       </p>
     );
   }
 
   return (
     <div className="feed">
-      <h1 className="text-xl font-bold text-white mb-2">Fil d’actualité</h1>
+      <h1 className="text-xl font-bold text-white mb-2">Latest Products</h1>
       <p className="text-gray-300 mb-4">
-        Découvrez les derniers produits publiés sur Wizza Free Shop.
+        Discover the newest items published on Wizza Free Shop.
       </p>
       <div className="grid grid-cols-2 gap-4 p-4 bg-black">
         {products.map((product) => (
