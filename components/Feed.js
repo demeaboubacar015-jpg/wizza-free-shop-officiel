@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
-import productCard from "./productCard";
+import ProductCard from "./ProductCard";
 
 export default function Feed() {
   const [products, setProducts] = useState([]);
