@@ -1,29 +1,29 @@
-import React from "react";
-import styles from "./ProductCard.module.css";
+import Link from "next/link";
 
 export default function ProductCard({ product }) {
+  const whatsappLink = `https://wa.me/22602680798?text=Bonjour, je souhaite commander le produit: ${product.name}`;
+
   return (
-    <div className={styles.card}>
-      <div className={styles.imageContainer}>
-        {(product.image || product.image_url) ? (
-          <img
-            src={product.image || product.image_url}
-            alt={product.title}
-            className={styles.image}
-          />
-        ) : (
-          <div className={styles.noImage}>No image available</div>
-        )}
-      </div>
-      <div className={styles.info}>
-        <h2 className={styles.title}>{product.title}</h2>
-        <p className={styles.price}>{product.price} FCFA</p>
-        <p className={styles.description}>
-          {product.description?.length > 100
-            ? product.description.substring(0, 100) + "..."
-            : product.description}
-        </p>
-      </div>
+    <div className="product-card">
+      <img src={product.image_url} alt={product.name} className="product-image" />
+      <h3>{product.name}</h3>
+      <p>{product.price} FCFA</p>
+
+      {/* Bouton Voir détails */}
+      <Link href={`/product/${product.id}`}>
+        <button className="btn-details">
+          <img src="/icons/eye.png" alt="Voir détails" width="18" height="18" />
+          Voir détails
+        </button>
+      </Link>
+
+      {/* Bouton WhatsApp */}
+      <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+        <button className="btn-whatsapp">
+          <img src="/icons/whatsapp.png" alt="WhatsApp" width="20" height="20" />
+          Commander via WhatsApp
+        </button>
+      </a>
     </div>
   );
 }

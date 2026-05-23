@@ -1,0 +1,44 @@
+.footer {
+  background-color: #111;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li a {
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu li a:hover {
+  color: #fff;
+}
+
+.founder {
+  margin-top: 15px;
+  color: #FFD700;
+  font-weight: bold;
+}
+
+.icons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.icons img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}

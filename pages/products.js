@@ -4,7 +4,7 @@ import ProductCard from "../components/ProductCard";
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
 
-export default function Home() {
+export default function Products() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -20,17 +20,13 @@ export default function Home() {
       <Navbar />
 
       <div style={{ padding: "60px 20px", textAlign: "center" }}>
-        <h1 style={{ color: "#FFD700", marginBottom: "20px" }}>
-          Wizza Free Shop
-        </h1>
-        <h2 style={{ color: "#FFD700", marginBottom: "10px" }}>
-          Derniers Produits
-        </h2>
+        <h1 style={{ color: "#FFD700", marginBottom: "20px" }}>Produits</h1>
         <p style={{ maxWidth: "700px", margin: "auto", lineHeight: "1.8" }}>
-          Découvrez les derniers articles publiés sur Wizza Free Shop.
+          Découvrez tous les articles disponibles sur <strong>Wizza Free Shop</strong>.
         </p>
       </div>
 
+      {/* Grille des produits */}
       <div
         style={{
           display: "grid",

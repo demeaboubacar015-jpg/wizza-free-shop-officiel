@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  typescript: {
-    ignoreBuildErrors: true,
+  // Désactive Turbopack pour utiliser Webpack classique
+  experimental: {
+    turbo: {
+      enabled: false,
+    },
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
