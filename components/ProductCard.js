@@ -5,9 +5,9 @@ export default function ProductCard({ product }) {
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
-        {product.image ? (
+        {(product.image || product.image_url) ? (
           <img
-            src={product.image}
+            src={product.image || product.image_url}
             alt={product.title}
             className={styles.image}
           />
