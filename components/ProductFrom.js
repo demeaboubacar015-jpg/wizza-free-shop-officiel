@@ -15,12 +15,13 @@ export default function ProductForm({ onProductAdded }) {
     // Upload image dans Supabase Storage
     if (imageFile) {
       const fileName = `${Date.now()}-${imageFile.name}`;
-      const { data, error } = await supabase.storage
-        .from("products") // ⚠️ Ton bucket doit s’appeler "products"
+      const { error: uploadError } = await supabase.storage
+        .from("products") // ⚠️ ton bucket doit s’appeler "products"
         .upload(fileName, imageFile);
 
-      if (error) {
-        console.error("Erreur upload image:", error.message);
+      if (uploadError) {
+        console.error("Erreur upload image:", uploadError.message);
+        alert("Erreur upload image: " + uploadError.message);
         return;
       }
 
@@ -32,18 +33,19 @@ export default function ProductForm({ onProductAdded }) {
       imageUrl = publicUrl.publicUrl;
     }
 
-    // Insérer le produit dans la table
+    // Insérer le produit dans la table (colonne "image")
     const { error } = await supabase.from("products").insert([
       {
         title,
         price,
         description,
-        image: imageUrl, // ⚠️ Colonne "image" ou "image_url" selon ta table
+        image: imageUrl, // ✅ correspond à ta colonne
       },
     ]);
 
     if (error) {
       console.error("Erreur ajout produit:", error.message);
+      alert("Erreur ajout produit: " + error.message);
     } else {
       alert("Produit ajouté !");
       setTitle("");

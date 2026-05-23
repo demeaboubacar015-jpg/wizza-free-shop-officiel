@@ -5,11 +5,15 @@ export default function ProductCard({ product }) {
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
-        <img
-          src={product.image || product.image_url}
-          alt={product.title}
-          className={styles.image}
-        />
+        {product.image ? (
+          <img
+            src={product.image}
+            alt={product.title}
+            className={styles.image}
+          />
+        ) : (
+          <div className={styles.noImage}>No image available</div>
+        )}
       </div>
       <div className={styles.info}>
         <h2 className={styles.title}>{product.title}</h2>

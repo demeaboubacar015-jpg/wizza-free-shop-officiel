@@ -4,6 +4,7 @@ import ProductCard from "./ProductCard";
 
 export default function Feed() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -17,15 +18,24 @@ export default function Feed() {
       } else {
         setProducts(data);
       }
+      setLoading(false);
     };
 
     fetchProducts();
   }, []);
 
-  if (!products || products.length === 0) {
+  if (loading) {
     return (
       <p className="text-gray-400 text-center p-10">
         Loading products...
+      </p>
+    );
+  }
+
+  if (!products || products.length === 0) {
+    return (
+      <p className="text-gray-400 text-center p-10">
+        No products available yet.
       </p>
     );
   }
