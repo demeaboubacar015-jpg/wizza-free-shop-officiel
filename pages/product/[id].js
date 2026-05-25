@@ -59,7 +59,7 @@ Merci de me confirmer la disponibilité et les modalités de livraison 🙏
   const whatsappLink = `https://wa.me/22606895317?text=${encodeURIComponent(whatsappMessage)}`;
 
   // ✅ Lien TikTok (remplace par ton vrai profil)
-  const tiktokLink = "https://www.tiktok.com/@tonprofil";
+  const tiktokLink = "https://www.tiktok.com/@wizzabossboss7?";
 
   return (
     <div style={{ backgroundColor: "#000", color: "#fff", minHeight: "100vh" }}>
