@@ -42,6 +42,14 @@ h1, h2, h3 {
   color: #FFD700; /* doré au survol */
 }
 
+/* Grille produits en 2 colonnes (PC et mobile) */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* deux colonnes fixes */
+  gap: 20px;
+  padding: 20px;
+}
+
 /* Carte produit */
 .product-card {
   background-color: #111;
@@ -57,17 +65,22 @@ h1, h2, h3 {
   box-shadow: 0 0 20px #FFD700; /* ombre dorée */
 }
 
-/* Images produits carrées */
-.product-image {
+/* ✅ Conteneur carré pour les images */
+.product-image-container {
   width: 100%;
   aspect-ratio: 1 / 1;   /* carré parfait */
-  object-fit: cover;     /* garde proportions */
+  overflow: hidden;
   border-radius: 8px;
-  margin-bottom: 15px;
+}
+
+.product-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* remplit le carré sans déformation */
   transition: transform 0.3s ease;
 }
 
-.product-card:hover .product-image {
+.product-card:hover .product-image-container img {
   transform: scale(1.08); /* zoom sur l’image */
 }
 
@@ -112,7 +125,7 @@ h1, h2, h3 {
   background-color: #1ebe5d !important;
 }
 
-/* ✅ Responsive mobile */
+/* ✅ Responsive mobile : garder 2 colonnes */
 @media (max-width: 768px) {
   /* Centrage global */
   body, h1, h2, h3, p, div {
@@ -131,24 +144,18 @@ h1, h2, h3 {
     padding: 6px 4px; /* zone cliquable conservée */
   }
 
-  /* Images produits carrées */
-  .product-image {
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+  /* ✅ Grille produits reste en 2 colonnes */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 10px;
   }
 
   /* Boutons adaptés au mobile */
   .btn-details, .btn-whatsapp {
-    width: 100%;           /* bouton prend toute la largeur */
-    max-width: 250px;      /* limite pour rester élégant */
-    margin: 10px auto;     /* centré */
-    font-size: 14px;       /* texte plus lisible sur mobile */
-  }
-
-  /* Conteneur principal */
-  .container {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 200px;
+    margin: 10px auto;
+    font-size: 14px;
   }
 }
