@@ -14,7 +14,7 @@ export default function Admin() {
   const [imageFile, setImageFile] = useState(null);
   const [products, setProducts] = useState([]);
 
-  // Vérification de session
+  // ✅ Vérification de session
   useEffect(() => {
     const checkSession = async () => {
       const { data } = await supabase.auth.getSession();
@@ -27,7 +27,7 @@ export default function Admin() {
     checkSession();
   }, []);
 
-  // Connexion
+  // ✅ Connexion
   const handleLogin = async (e) => {
     e.preventDefault();
     setErrorMsg("");
@@ -45,32 +45,29 @@ export default function Admin() {
     }
   };
 
-  // Déconnexion
+  // ✅ Déconnexion
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setSession(null);
     setProducts([]);
   };
 
-  // Charger les produits
+  // ✅ Charger les produits
   const fetchProducts = async () => {
-    const { data, error } = await supabase.from("products").select("*").order("created_at", { ascending: false });
-    if (error) {
-      console.error("Erreur chargement produits:", error.message);
-    } else {
-      setProducts(data);
-    }
+    const { data, error } = await supabase
+      .from("products")
+      .select("*")
+      .order("created_at", { ascending: false });
+    if (!error) setProducts(data);
   };
 
-  // Sélection fichier image
+  // ✅ Sélection fichier image
   const handleImageChange = (event) => {
     const file = event.target.files[0];
-    if (file) {
-      setImageFile(file);
-    }
+    if (file) setImageFile(file);
   };
 
-  // Ajouter un produit
+  // ✅ Ajouter un produit
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -96,11 +93,10 @@ export default function Admin() {
 
     const { error: dbError } = await supabase.from("products").insert([
       {
-        title,
+        name: title, // ✅ stocke dans colonne name
         price,
         description,
-        image: imageUrl,      // ✅ stocke dans colonne image
-        image_url: imageUrl,  // ✅ stocke aussi dans colonne image_url
+        image_url: imageUrl,
       },
     ]);
 
@@ -116,7 +112,7 @@ export default function Admin() {
     }
   };
 
-  // Supprimer un produit
+  // ✅ Supprimer un produit
   const handleDelete = async (id) => {
     const { error } = await supabase.from("products").delete().eq("id", id);
     if (error) {
@@ -129,7 +125,7 @@ export default function Admin() {
 
   if (loading) return <p>Chargement...</p>;
 
-  // Si pas connecté → formulaire login
+  // ✅ Si pas connecté → formulaire login
   if (!session) {
     return (
       <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
@@ -158,19 +154,19 @@ export default function Admin() {
     );
   }
 
-  // Si connecté → tableau de bord
+  // ✅ Si connecté → tableau de bord
   return (
     <div className="admin-page" style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       <h1>Tableau de Bord Admin</h1>
       <p>Bienvenue {session.user.email}</p>
       <button onClick={handleLogout}>Se déconnecter</button>
 
-      {/* Section ajout produit */}
+      {/* ✅ Formulaire ajout produit */}
       <h2>Ajouter un produit</h2>
       <form onSubmit={handleSubmit} style={{ marginBottom: "40px" }}>
         <input
           type="text"
-          placeholder="Titre du produit"
+          placeholder="Nom du produit"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
@@ -189,22 +185,44 @@ export default function Admin() {
         <button type="submit">Publier le produit</button>
       </form>
 
-      {/* Section gestion des stocks */}
+      {/* ✅ Liste des produits en 2 colonnes */}
       <h2>Liste des produits</h2>
       {products.length > 0 ? (
-        <ul>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: "20px",
+          }}
+        >
           {products.map((product) => (
-            <li key={product.id} style={{ marginBottom: "15px" }}>
-              <strong>{product.title}</strong> - {product.price} €
-              <br />
-              {(product.image || product.image_url) && (
+            <div
+              key={product.id}
+              style={{
+                backgroundColor: "#111",
+                borderRadius: "8px",
+                padding: "20px",
+                textAlign: "center",
+              }}
+            >
+              <h3 style={{ color: "#FFD700" }}>{product.name}</h3>
+              {product.image_url && (
                 <img
-                  src={product.image || product.image_url}
-                  alt={product.title}
-                  style={{ width: "120px", marginTop: "5px" }}
+                  src={product.image_url}
+                  alt={product.name}
+                  style={{
+                    width: "100%",
+                    height: "200px",
+                    objectFit: "cover",
+                    borderRadius: "6px",
+                    marginBottom: "10px",
+                  }}
                 />
               )}
-              <br />
+              <p>{product.description}</p>
+              <p style={{ color: "#FFD700", marginTop: "10px" }}>
+                {product.price} FCFA
+              </p>
               <button
                 onClick={() => handleDelete(product.id)}
                 style={{
@@ -212,15 +230,15 @@ export default function Admin() {
                   color: "white",
                   border: "none",
                   padding: "5px 10px",
-                  marginTop: "5px",
+                  marginTop: "10px",
                   cursor: "pointer",
                 }}
               >
                 Supprimer
               </button>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       ) : (
         <p>Aucun produit disponible pour le moment.</p>
       )}
