@@ -5,7 +5,7 @@ body {
   background-color: #000; /* fond noir */
   color: #fff;            /* texte blanc */
   font-family: Arial, sans-serif;
-  width: 100%;            /* largeur totale */
+  width: 100%;
 }
 
 /* Titres */
@@ -42,7 +42,7 @@ h1, h2, h3 {
   color: #FFD700; /* doré au survol */
 }
 
-/* Grille produits en 2 colonnes (PC et mobile) */
+/* Grille produits en 2 colonnes fixes */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* deux colonnes fixes */
@@ -61,32 +61,26 @@ h1, h2, h3 {
 }
 
 .product-card:hover {
-  transform: scale(1.05); /* zoom léger */
-  box-shadow: 0 0 20px #FFD700; /* ombre dorée */
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #FFD700;
 }
 
-/* ✅ Conteneur carré pour les images */
-.product-image-container {
-  width: 100%;
-  aspect-ratio: 1 / 1;   /* carré parfait */
-  overflow: hidden;
+/* ✅ Image produit carrée */
+.votre-image-produit {
+  width: 100%;       /* prend toute la largeur */
+  aspect-ratio: 1/1; /* carré parfait */
+  object-fit: cover; /* recadrage harmonieux */
   border-radius: 8px;
-}
-
-.product-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;     /* remplit le carré sans déformation */
   transition: transform 0.3s ease;
 }
 
-.product-card:hover .product-image-container img {
-  transform: scale(1.08); /* zoom sur l’image */
+.product-card:hover .votre-image-produit {
+  transform: scale(1.08);
 }
 
 /* Bouton Voir détails */
 .btn-details {
-  background-color: #FFD700 !important; /* doré */
+  background-color: #FFD700 !important;
   color: #000 !important;
   border: none;
   padding: 10px 20px;
@@ -107,7 +101,7 @@ h1, h2, h3 {
 
 /* Bouton WhatsApp */
 .btn-whatsapp {
-  background-color: #25D366 !important; /* vert WhatsApp */
+  background-color: #25D366 !important;
   color: #fff !important;
   border: none;
   padding: 10px 20px;
@@ -125,9 +119,8 @@ h1, h2, h3 {
   background-color: #1ebe5d !important;
 }
 
-/* ✅ Responsive mobile : garder 2 colonnes */
+/* ✅ Responsive mobile : garder 2 colonnes et menu compact */
 @media (max-width: 768px) {
-  /* Centrage global */
   body, h1, h2, h3, p, div {
     text-align: center !important;
     margin: 0 auto !important;
@@ -135,23 +128,23 @@ h1, h2, h3 {
 
   /* Navbar plus compacte */
   .navbar ul {
-    gap: 12px; /* réduit l’espace entre les liens */
+    gap: 12px;
     justify-content: center;
   }
 
   .navbar ul li a {
-    font-size: 14px; /* taille réduite sur mobile */
-    padding: 6px 4px; /* zone cliquable conservée */
+    font-size: 14px;   /* texte plus petit */
+    padding: 6px 4px;  /* zone cliquable conservée */
   }
 
-  /* ✅ Grille produits reste en 2 colonnes */
+  /* Grille produits reste en 2 colonnes */
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
     padding: 10px;
   }
 
-  /* Boutons adaptés au mobile */
+  /* Boutons adaptés */
   .btn-details, .btn-whatsapp {
     width: 100%;
     max-width: 200px;
