@@ -184,6 +184,7 @@ h1, h2, h3 {
   .navbar ul {
     gap: 12px;
     justify-content: center;
+    flex-wrap: wrap; /* ✅ permet retour à la ligne sur mobile */
   }
 
   .navbar ul li a {
