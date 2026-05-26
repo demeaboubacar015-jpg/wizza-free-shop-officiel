@@ -91,12 +91,14 @@ export default function Admin() {
       imageUrl = publicUrlData.publicUrl;
     }
 
+    // ✅ Insérer dans la colonne title + image et image_url
     const { error: dbError } = await supabase.from("products").insert([
       {
-        name: title, // ✅ stocke dans colonne name
+        title,                // ✅ correspond à ta colonne
         price,
         description,
-        image_url: imageUrl,
+        image: imageUrl,      // ✅ colonne image
+        image_url: imageUrl,  // ✅ colonne image_url
       },
     ]);
 
@@ -185,7 +187,7 @@ export default function Admin() {
         <button type="submit">Publier le produit</button>
       </form>
 
-      {/* ✅ Liste des produits en 2 colonnes */}
+      {/* ✅ Liste des produits */}
       <h2>Liste des produits</h2>
       {products.length > 0 ? (
         <div
@@ -205,11 +207,11 @@ export default function Admin() {
                 textAlign: "center",
               }}
             >
-              <h3 style={{ color: "#FFD700" }}>{product.name}</h3>
-              {product.image_url && (
+              <h3 style={{ color: "#FFD700" }}>{product.title}</h3>
+              {(product.image_url || product.image) && (
                 <img
-                  src={product.image_url}
-                  alt={product.name}
+                  src={product.image_url || product.image}
+                  alt={product.title}
                   style={{
                     width: "100%",
                     height: "200px",

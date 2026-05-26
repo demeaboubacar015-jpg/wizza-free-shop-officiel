@@ -1,13 +1,15 @@
 export default function Footer() {
   return (
     <footer className="footer">
-      <ul>
+      {/* ✅ Liens légaux */}
+      <ul className="footer-links">
         <li><a href="/legal">Mentions légales</a></li>
         <li><a href="/privacy">Politique de confidentialité</a></li>
         <li><a href="/terms">Conditions d’utilisation</a></li>
       </ul>
 
-      <div className="icons">
+      {/* ✅ Icônes contact réduites */}
+      <div className="footer-icons">
         {/* WhatsApp */}
         <a href="https://wa.me/22606895317" target="_blank" rel="noopener noreferrer">
           <img src="/icons/whatsapp.png" alt="WhatsApp" />
@@ -24,6 +26,7 @@ export default function Footer() {
         </a>
       </div>
 
+      {/* ✅ Copyright */}
       <p>© 2026 Wizza Free Shop – Tous droits réservés</p>
     </footer>
   );
