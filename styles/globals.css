@@ -32,7 +32,7 @@ h1, h2, h3 {
 }
 
 .navbar ul li a {
-  color: #FFD700; /* liens dorés premium */
+  color: #FFD700; /* doré premium */
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
@@ -42,7 +42,7 @@ h1, h2, h3 {
   color: #fff; /* blanc au survol */
 }
 
-/* Grille produits en 2 colonnes fixes (PC) */
+/* ✅ Grille produits : 2 colonnes sur PC */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* deux colonnes sur PC */
@@ -184,7 +184,7 @@ h1, h2, h3 {
   .navbar ul {
     gap: 12px;
     justify-content: center;
-    flex-wrap: wrap; /* ✅ permet retour à la ligne sur mobile */
+    flex-wrap: wrap; /* ✅ retour à la ligne sur mobile */
   }
 
   .navbar ul li a {
@@ -192,7 +192,7 @@ h1, h2, h3 {
     padding: 6px 4px;  /* zone cliquable conservée */
   }
 
-  /* ✅ Grille produits passe en 1 colonne */
+  /* ✅ Grille produits passe en 1 colonne sur mobile */
   .products-grid {
     grid-template-columns: 1fr; /* une seule colonne */
     gap: 20px;
