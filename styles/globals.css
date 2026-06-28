@@ -57,25 +57,25 @@ h1, h2, h3 {
   border-radius: 8px;
   text-align: center;
   color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease; /* ✅ uniquement l’ombre */
 }
 
 .product-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #FFD700;
+  box-shadow: 0 0 20px #FFD700; /* effet doré au survol */
 }
 
-/* ✅ Image produit carrée */
+/* ✅ Image produit carrée sans zoom */
 .votre-image-produit {
   width: 100%;       /* prend toute la largeur */
   aspect-ratio: 1/1; /* carré parfait */
   object-fit: cover; /* recadrage harmonieux */
   border-radius: 8px;
-  transition: transform 0.3s ease;
+  transition: none !important; /* ✅ pas d’animation */
 }
 
+/* ❌ Supprimer toute règle hover sur l’image */
 .product-card:hover .votre-image-produit {
-  transform: scale(1.08);
+  transform: none !important; /* ✅ pas de zoom */
 }
 
 /* Bouton Voir détails */
@@ -194,7 +194,7 @@ h1, h2, h3 {
 
   /* ✅ Grille produits passe en 1 colonne sur mobile */
   .products-grid {
-    grid-template-columns: 1fr; /* une seule colonne */
+    grid-template-columns: 1fr !important; /* force une seule colonne */
     gap: 20px;
     padding: 10px;
   }

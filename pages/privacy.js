@@ -21,33 +21,70 @@ export default function Privacy() {
           <p>
             Nous ne collectons pas de comptes utilisateurs ni de mots de passe.
             Les seules données échangées proviennent de vos interactions via
-            WhatsApp ou TikTok (nom, numéro, profil).
+            WhatsApp, TikTok ou téléphone (nom, numéro, profil).
           </p>
 
           <h2 style={{ color: "#FFD700" }}>2. Utilisation des données</h2>
           <p>
-            Vos informations sont utilisées uniquement pour traiter vos commandes
-            et communiquer avec vous. Elles ne sont jamais revendues ni partagées
-            avec des tiers.
+            Vos informations sont utilisées uniquement pour traiter vos commandes,
+            assurer la livraison et communiquer avec vous. Elles ne sont jamais
+            revendues ni partagées avec des tiers à des fins commerciales.
           </p>
 
-          <h2 style={{ color: "#FFD700" }}>3. Conservation</h2>
+          <h2 style={{ color: "#FFD700" }}>3. Partage avec prestataires</h2>
           <p>
-            Les données échangées via WhatsApp/TikTok sont conservées uniquement
-            le temps nécessaire pour finaliser votre commande.
+            Certaines données (nom, adresse, numéro de téléphone) peuvent être
+            transmises aux transporteurs ou partenaires logistiques afin d’assurer
+            la livraison de vos produits.
           </p>
 
-          <h2 style={{ color: "#FFD700" }}>4. Sécurité</h2>
+          <h2 style={{ color: "#FFD700" }}>4. Conservation</h2>
+          <p>
+            Les données échangées sont conservées uniquement le temps nécessaire
+            pour finaliser votre commande et assurer le suivi client. Les données
+            liées aux factures peuvent être conservées conformément aux obligations
+            légales et fiscales.
+          </p>
+
+          <h2 style={{ color: "#FFD700" }}>5. Sécurité</h2>
           <p>
             Nous utilisons les plateformes officielles (WhatsApp, TikTok) pour
             garantir la sécurité de vos échanges. Wizza Free Shop ne stocke pas
-            vos données sur son site.
+            vos données sensibles sur son site.
           </p>
 
-          <h2 style={{ color: "#FFD700" }}>5. Vos droits</h2>
+          <h2 style={{ color: "#FFD700" }}>6. Cookies</h2>
           <p>
-            Vous pouvez demander la suppression de vos données personnelles en
-            nous contactant directement via WhatsApp ou TikTok.
+            Notre site peut utiliser des cookies techniques pour améliorer la
+            navigation. Aucun cookie publicitaire ou de suivi n’est installé.
+          </p>
+
+          <h2 style={{ color: "#FFD700" }}>7. Consentement</h2>
+          <p>
+            En utilisant notre site et en passant commande, vous acceptez cette
+            politique de confidentialité.
+          </p>
+
+          <h2 style={{ color: "#FFD700" }}>8. Mineurs</h2>
+          <p>
+            Wizza Free Shop ne cible pas les mineurs. Les achats doivent être
+            réalisés par des adultes ou sous la responsabilité d’un représentant
+            légal.
+          </p>
+
+          <h2 style={{ color: "#FFD700" }}>9. Vos droits</h2>
+          <p>
+            Conformément au RGPD et au CCPA, vous disposez d’un droit d’accès,
+            de rectification et de suppression de vos données personnelles.
+            Vous pouvez exercer ces droits en nous contactant directement via
+            WhatsApp, TikTok ou téléphone.
+          </p>
+
+          <h2 style={{ color: "#FFD700" }}>10. Contact</h2>
+          <p>
+            Pour toute question relative à vos données personnelles, vous pouvez
+            nous joindre via WhatsApp, TikTok ou par téléphone. Nous nous engageons
+            à répondre rapidement.
           </p>
         </section>
       </div>

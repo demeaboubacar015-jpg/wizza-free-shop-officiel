@@ -21,14 +21,14 @@ export default function Legal() {
           <p>
             Le site <strong>Wizza Free Shop</strong> est fondé et dirigé par{" "}
             <strong>Deme Aboubacar</strong>, entrepreneur passionné par la technologie
-            et l’innovation digitale, appliquées au commerce en ligne.
+            et l’innovation digitale.
           </p>
 
           <h2 style={{ color: "#FFD700" }}>2. Objet du site</h2>
           <p>
             Wizza Free Shop est une boutique en ligne dédiée à la vente de produits
-            variés et accessibles (vêtements, accessoires, montres, chapeaux, etc.),
-            avec une expérience d’achat moderne et sécurisée grâce aux outils numériques.
+            numériques et physiques (vêtements, accessoires, etc.),
+            avec une expérience d’achat moderne et sécurisée.
           </p>
 
           <h2 style={{ color: "#FFD700" }}>3. Hébergement</h2>
@@ -45,15 +45,41 @@ export default function Legal() {
             (WhatsApp, TikTok, téléphone) et servent exclusivement à finaliser vos
             commandes et assurer un suivi client de qualité.
           </p>
+          <p>
+            Conformément au RGPD et au CCPA, vous disposez d’un droit d’accès, de
+            rectification et de suppression de vos données personnelles. Pour exercer
+            ces droits, contactez-nous via les canaux indiqués ci-dessous.
+          </p>
 
-          <h2 style={{ color: "#FFD700" }}>5. Responsabilité</h2>
+          <h2 style={{ color: "#FFD700" }}>5. Propriété intellectuelle</h2>
+          <p>
+            Tous les contenus présents sur le site (textes, images, logos,
+            produits numériques) sont protégés par le droit d’auteur. Toute
+            reproduction ou utilisation non autorisée est strictement interdite.
+          </p>
+
+          <h2 style={{ color: "#FFD700" }}>6. Conditions générales d’utilisation</h2>
+          <p>
+            L’accès et l’utilisation du site impliquent l’acceptation des présentes
+            mentions légales. Toute utilisation frauduleuse ou abusive pourra donner
+            lieu à des poursuites.
+          </p>
+
+          <h2 style={{ color: "#FFD700" }}>7. Responsabilité</h2>
           <p>
             Nous nous engageons à fournir des produits de qualité. Toutefois,
             Wizza Free Shop ne saurait être tenu responsable des problèmes techniques
             liés aux plateformes externes utilisées pour la communication.
           </p>
 
-          <h2 style={{ color: "#FFD700" }}>6. Message du fondateur</h2>
+          <h2 style={{ color: "#FFD700" }}>8. Contact</h2>
+          <p>
+            Pour toute question ou demande, vous pouvez nous joindre via WhatsApp,
+            TikTok ou par téléphone. Nous nous engageons à répondre dans les plus
+            brefs délais.
+          </p>
+
+          <h2 style={{ color: "#FFD700" }}>9. Message du fondateur</h2>
           <p style={{ fontStyle: "italic", color: "#FFD700" }}>
             “Passionné de technologie, j’ai voulu créer une boutique en ligne qui
             allie innovation digitale et accessibilité. Mon ambition est de proposer

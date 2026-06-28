@@ -8,7 +8,10 @@ export default function Home() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const { data, error } = await supabase.from("products").select("*");
+      const { data, error } = await supabase
+        .from("products")
+        .select("*")
+        .order("created_at", { ascending: false }); // ✅ dernier produit en premier
       if (!error) setProducts(data);
     };
     fetchProducts();
@@ -24,14 +27,14 @@ export default function Home() {
           Bienvenue sur <span style={{ color: "#fff" }}>Wizza Free Shop</span>
         </h1>
         <p style={{ maxWidth: "700px", margin: "auto", lineHeight: "1.8" }}>
-          Découvrez notre collection de vêtements et accessoires élégants pour toutes vos occasions.  
-          Que ce soit pour une fête, un événement spécial ou simplement pour affirmer votre style,  
+          Découvrez notre collection de vêtements et accessoires élégants pour toutes vos occasions.
+
           nous vous proposons des articles de qualité qui allient tendance et confort.
         </p>
 
-        <h2 style={{ marginTop: "40px" }}>🛍️ Derniers Produits</h2>
+        <h2 style={{ marginTop: "40px", color: "#FFD700" }}>🛍️ Tous nos Produits</h2>
         <p style={{ maxWidth: "700px", margin: "auto", lineHeight: "1.8" }}>
-          Explorez nos nouveautés en habits, montres, chapeaux et accessoires.
+          Explorez l’ensemble de notre catalogue en habits, et accessoires.
         </p>
       </div>
 
@@ -39,8 +42,7 @@ export default function Home() {
       <div className="products-grid">
         {products.map((product) => (
           <div key={product.id} className="product-card">
-            
-            {/* ✅ Image carrée parfaite (utilise image_url ou image) */}
+            {/* ✅ Image carrée parfaite sans zoom */}
             {(product.image_url || product.image) && (
               <img
                 src={product.image_url || product.image}
@@ -58,7 +60,12 @@ export default function Home() {
             {/* ✅ Bouton Voir plus de détail */}
             <a href={`/product/${product.id}`}>
               <button className="btn-details">
-                <img src="/icons/voirplus.png" alt="Voir plus de détail" width="20" height="20" />
+                <img
+                  src="/icons/voirplus.png"
+                  alt="Voir plus de détail"
+                  width="20"
+                  height="20"
+                />
                 Voir plus de détail
               </button>
             </a>

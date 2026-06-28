@@ -9,7 +9,10 @@ export default function Products() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const { data, error } = await supabase.from("products").select("*");
+      const { data, error } = await supabase
+        .from("products")
+        .select("*")
+        .order("created_at", { ascending: false }); // tri par date, dernier produit en premier
       if (!error) setProducts(data);
     };
     fetchProducts();
@@ -45,7 +48,7 @@ export default function Products() {
               textAlign: "center",
             }}
           >
-            {/* Image fixe */}
+            {/* Image produit */}
             <div style={{ width: "100%", height: "250px", overflow: "hidden" }}>
               <img
                 src={product.image_url}
